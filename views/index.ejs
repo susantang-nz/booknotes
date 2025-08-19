@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Notes | Susan Tang</title>
+  </head>
+  <body>
+    <h1>My Book Notes</h1>
+    <hr />
+
+    <% booknotes.forEach(booknote => { %>
+    <div class="booknote-item">
+      <a href="/book/<%=booknote.bookid%>"
+        ><h2><%=booknote.title%> - By <%=booknote.author%></h2></a
+      >
+      <img src="<%=booknote.coverurl %>" alt="<%= booknote.title %>" />
+      <p>Date Read: <%=booknote.dateread%>.</p>
+      <p>How Strongly I Recommend it: <%=booknote.rate%>/10</p>
+      <p><%=booknote.summary%></p>
+      <a href="/book/<%=booknote.bookid%>">Read my notes</a>
+    </div>
+    <% }); %>
+  </body>
+</html>
