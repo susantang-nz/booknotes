@@ -16,5 +16,12 @@
     <h3>My Note</h3>
     <p><%=booknote.note%></p>
     <a href="/">Back</a>
+
+    <form class="delete" action="/delete" , method="post">
+      <input type="hidden" name="id" value="<%=booknote.bookid%>" />
+      <button type="submit">Delete</button>
+    </form>
+
+    <a href="/edit">Edit</a>
   </body>
 </html>
