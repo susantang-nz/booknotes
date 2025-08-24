@@ -1,0 +1,27 @@
+<%- include("partials/header") %>
+<h2>Add Note</h2>
+
+<img src="<%= coverurl%>" alt="<%= title %>" />
+<p><%= title %></p>
+<p><%= author %></p>
+<form action="/add-note/submit" method="POST">
+  <input type="hidden" name="title" value="<%= title %>" />
+  <label for="rating">Rating</label>
+  <input
+    type="number"
+    name="rating"
+    placeholder="1 to 10"
+    min="0"
+    max="10"
+    required
+  />
+  <label for="dateread">Date Read</label>
+  <input type="date" name="dateread" required />
+  <label for="summary">Summary</label>
+  <textarea name="summary"></textarea>
+  <label for="note">Note</label>
+  <textarea type="text" name="note" required></textarea>
+  <button type="submit">Summit</button>
+</form>
+
+<%- include("partials/footer") %>

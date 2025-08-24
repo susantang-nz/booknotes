@@ -1,11 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Note | Susan Tang</title>
-  </head>
-  <body>
-    <h1>Add a New Book Note</h1>
-  </body>
-</html>
+<%- include("partials/header") %>
+<h2>Add a New Book</h2>
+
+<% if (error) { %>
+<p style="color: red"><%= error %></p>
+<% } %>
+<form action="/search" method="POST">
+  <div class="mb-3">
+    <label>Search by title / author</label>
+    <input
+      type="text"
+      name="searchInput"
+      placeholder="Search books..."
+      required
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<!-- 
+
+  <div class="mb-3">
+    <label class="form-label">Date Read</label>
+    <input type="date" class="form-control" id="readdate" name="readdate" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Rating</label>
+    <input type="number" class="form-control" id="rating" name="rating" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Summary</label>
+    <input type="text" class="form-control" id="summary" name="summary" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Note</label>
+    <input type="text" class="form-control" id="note" name="note" />
+  </div> -->
+
+<%- include("partials/footer") %>

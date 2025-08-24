@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+<h2>Edit</h2>
+<form action="/book/<%= booknote.bookid %>" method="POST">
+  <img src="<%= booknote.coverurl %>" alt="<%= booknote.title %>" />
+  <label>Title</label>
+  <input type="text" name="title" value="<%= booknote.title %>" readonly />
+
+  <label>Author</label>
+  <input type="text" name="author" value="<%= booknote.author %>" readonly />
+
+  <label>Date Read</label>
+  <input type="date" name="dateread" value="<%= booknote.dateread %>" />
+
+  <label>Rating</label>
+  <input
+    type="number"
+    min="0"
+    max="10"
+    name="rating"
+    value="<%= booknote.rating%>"
+  />
+
+  <label>Summary</label>
+  <textarea name="summary"><%= booknote.summary %></textarea>
+
+  <label>Note</label>
+  <textarea name="note"><%= booknote.note %></textarea>
+  <button type="submit">Save Changes</button>
+</form>
+
+<%- include("partials/footer") %>

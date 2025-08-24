@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Note | Susan Tang</title>
-  </head>
-  <body>
-    <h1>Susan Tang</h1>
-    <h2><%=booknote.title%> - By <%=booknote.author%></h2>
-    <img src="<%=booknote.coverurl %>" alt="<%= booknote.title %>" />
-    <p>Date Read: <%=booknote.dateread%>.</p>
-    <p>How Strongly I Recommend it: <%=booknote.rate%>/10</p>
-    <h3>Summary</h3>
-    <p><%=booknote.summary%></p>
-    <h3>My Note</h3>
-    <p><%=booknote.note%></p>
-    <a href="/">Back</a>
+<%- include("partials/header") %>
+<h2><%=booknote.title%> - By <%=booknote.author%></h2>
+<img src="<%=booknote.coverurl %>" alt="<%= booknote.title %>" />
+<p>Date Read: <%=booknote.dateread%>.</p>
+<p>How Strongly I Recommend it: <%=booknote.rate%>/10</p>
+<h3>Summary</h3>
+<p><%=booknote.summary%></p>
+<h3>My Note</h3>
+<p><%=booknote.note%></p>
+<a href="/">Back</a>
 
-    <form class="delete" action="/delete" , method="post">
-      <input type="hidden" name="id" value="<%=booknote.bookid%>" />
-      <button type="submit">Delete</button>
-    </form>
+<form class="delete" action="/delete" , method="post">
+  <input type="hidden" name="id" value="<%=booknote.bookid%>" />
+  <button type="submit">Delete</button>
+</form>
 
-    <a href="/edit">Edit</a>
-  </body>
-</html>
+<form action="/edit" method="post">
+  <input type="hidden" name="id" value="<%=booknote.bookid%>" />
+  <button type="submit">Edit</button>
+</form>
+<%- include("partials/footer") %>

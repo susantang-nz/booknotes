@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+<h2>All books</h2>
+<% if (message) { %>
+<p style="color: green"><%= message %></p>
+<% } %> <% books.forEach(book => { %>
+<div class="book">
+  <img src="<%= book.coverurl %>" alt="<%= book.title %>" />
+  <p><%= book.title %></p>
+  <p><%= book.author %></p>
+  <p>Book id= <%= book.id %></p>
+  <form action="/delete-book" method="POST">
+    <input type="hidden" name="bookTitleToDelete" value="<%= book.title %>" />
+    <button type="submit">Delete</button>
+  </form>
+
+  <form action="/add-note" method="POST">
+    <input type="hidden" name="bookTitleToAddNote" value="<%= book.title %>" />
+    <button type="submit">Add Note</button>
+  </form>
+</div>
+<%}); %>
+<a href="/">Back</a>
+<%- include("partials/footer") %>

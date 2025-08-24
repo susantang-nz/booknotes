@@ -2,40 +2,36 @@ DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS books;
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
-    ISBN VARCHAR(20) NOT NULL UNIQUE,
     title VARCHAR(255),
     author VARCHAR(225),
-    coverURL VARCHAR(225)
+    coverurl VARCHAR(225)
 );
 CREATE TABLE notes (
     id SERIAL PRIMARY KEY,
-    bookId INT,
-    dateRead DATE,
-    rate INT,
+    bookid INT NOT NULL UNIQUE,
+    dateread DATE,
+    rating INT,
     summary TEXT,
     note TEXT,
-    FOREIGN KEY (bookId) REFERENCES books(id) ON DELETE CASCADE
+    FOREIGN KEY (bookid) REFERENCES books(id) ON DELETE CASCADE
 );
-INSERT INTO books (ISBN, title, author, coverURL)
+INSERT INTO books (title, author, coverurl)
 VALUES (
-        '9781451663884',
         'How to Talk So Kids Will Listen & Listen So Kids Will Talk',
         'Adele Faber & Elaine Mazlish',
         'https://covers.openlibrary.org/b/isbn/9781451663884-M.jpg'
     ),
     (
-        '9781250179937',
         'Surrounded by Idiots',
         'Thomas Erikson',
         'https://covers.openlibrary.org/b/isbn/9781250179937-M.jpg'
     ),
     (
-        '9780735211292',
         'Atomic Habits',
         'James Clear',
         'https://covers.openlibrary.org/b/isbn/9780735211292-M.jpg'
     );
-INSERT INTO notes (bookId, dateRead, rate, summary, note)
+INSERT INTO notes (bookid, dateread, rating, summary, note)
 VALUES (
         1,
         '2024-03-24',
